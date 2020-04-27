@@ -8,7 +8,7 @@ const dotenev = require('dotenv')
 dotenev.config();
 
 //bring routes
-const authRoute = require('./controller/auth')
+const authRoute = require('./routes/auth')
 
 const app = express()
 
@@ -33,7 +33,7 @@ if(process.env.NODE_ENV==='development'){
 }
 
 //routes middlewares
-app.use("signup", authRoute);
+app.use("/api", authRoute);
 
 app.get('/api',(req,res)=>{
     res.send('Server is working')
